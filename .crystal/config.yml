@@ -1,0 +1,48 @@
+id: wordpress.zerif-lite
+name: Zerif Lite
+version: 0.1.0
+description: the official zerif-lite module for [crystal](https://crystal.sh)
+author:
+  name: Chris Tate
+  email: chris@crystal.sh
+  url: https://crystal.sh
+copyright: 2015 Crystal
+modules:
+  official.authors: v0.1.0
+  official.handlebars: v0.1.0
+  official.license: v0.1.0
+  official.readme: v0.1.0
+imports:
+  authors: official.authors.AuthorsGenerator
+  handlebars: official.handlebars.HandlebarsEngine
+  license: official.license.MITGenerator
+  readme: official.readme.ReadmeGenerator
+exports:
+  BigTitleGenerator:
+    engine: handlebars
+    filename: wp-content/themes/zerif-lite/sections/big_title.php
+    template: sections/big_title.php
+    type: generator
+  CustomizerGenerator:
+    engine: handlebars
+    filename: wp-content/themes/zerif-lite/inc/customizer.php
+    template: inc/customizer.php
+    type: generator
+  TemplateGenerator:
+    copy:
+      dest: wp-content/themes/zerif-lite
+      src: code
+    type: generator
+outputs:
+  - generator: authors
+    spec:
+      author: $author
+      name: $name
+  - generator: license
+    spec:
+      copyright: $copyright
+  - generator: readme
+    spec:
+      name: $name
+      version: $version
+      description: $description
