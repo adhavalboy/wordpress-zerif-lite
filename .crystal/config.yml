@@ -28,6 +28,11 @@ exports:
     filename: wp-content/themes/zerif-lite/inc/customizer.php
     template: inc/customizer.php
     type: generator
+  HeaderGenerator:
+    engine: handlebars
+    filename: wp-content/themes/zerif-lite/header.php
+    template: header.php
+    type: generator
   TemplateGenerator:
     copy:
       dest: wp-content/themes/zerif-lite
